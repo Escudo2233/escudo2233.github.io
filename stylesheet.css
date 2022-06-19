@@ -1,10 +1,8 @@
 body {margin:0; font-family: Helvetica}
 
 .drawing{
+    display: flex;
     width: 100%;
-    margin: 15px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .logo {
@@ -20,7 +18,7 @@ body {margin:0; font-family: Helvetica}
 .logo1 {
     width: 55px;
     margin: 10px;
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -55,14 +53,14 @@ body {margin:0; font-family: Helvetica}
     color: #333333;
 }
 
-.bottombar {
+.navbar_bottom {
     overflow: hidden;
     background-color: #333;
     bottom: 0;
     width: 100%;
 }
 
-.bottombar a {
+.navbar_bottom a {
     border-radius: 25px;
     float: left;
     display: block;
@@ -75,18 +73,17 @@ body {margin:0; font-family: Helvetica}
     margin-top: 15px;
 }
 
-.bottombar a:hover {
+.navbar_bottom a:hover {
     background: #dddddd;
     color: #333333;
 }
 
 .maintop {
-    color: #dddddd;
-    width: 50%;
+    color: #333;
+    width: 75%;
     border-radius: 25px;
     border: 30px black;
     padding: 25px;
-    background-color: #333;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -95,7 +92,7 @@ body {margin:0; font-family: Helvetica}
 
 .main {
     color: #dddddd;
-    width: 50%;
+    width: 75%;
     border-radius: 25px;
     border: 30px black;
     padding: 25px;
@@ -104,6 +101,32 @@ body {margin:0; font-family: Helvetica}
     margin-left: auto;
     margin-right: auto;
     margin-top: 75px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.maintop a:link{
+    font-weight: bold;
+    border-radius: 25px;
+    float: left;
+    display: block;
+    background-color: #333333;
+    color: #dddddd;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 100%;
+    border-top: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.maintop a:hover {
+    background: #adaaaa;
+    color: #333333;
+}
+
+.maintop a:visited {
+    color: #dddddd;
+    text-decoration: none;
 }
 
 .main a:link {
@@ -144,20 +167,82 @@ body {margin:0; font-family: Helvetica}
     border-top: 10px;
 }
 
-.comms {
-    border-radius: 25px;
-    background-color: #545d69;
-    width: 30%;
-    float: top;
-    display: block;
-    color: #dddddd;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    margin: 5px;
+.flex-parent {
+    display: flex;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+.flex-parent > div {
+    margin-top: 20px;
+    padding: 12px;
+    width: auto;
+}
+
+
+.grid-parent {
     margin-right: auto;
     margin-left: auto;
-    margin-top: 15px;
+    color: #dddddd;
+    width: 75%;
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
 
+.grid-parent-index {
+    margin-right: auto;
+    margin-left: auto;
+    color: #dddddd;
+    width: 75%;
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
+}
+
+.grid-child {
+    border: 1px;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-grid {
+    background-color: #adaaaa;
+    border-radius: 25px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    --gap: 16px;
+    --num-cols: 4;
+    box-sizing: border-box;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    gap: var(--gap);
+}
+
+.image-grid > img {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.image-grid-col-2 {
+    grid-column: span 2;
+}
+
+.image-grid-row-2 {
+    grid-row: span 2;
+}
+
+/* Anything udner 1024px */
+@media screen and (max-width: 1024px) {
+    .image-grid {
+        --num-cols: 2;
+    }
 }
